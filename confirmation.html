@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Confirmed — LUMIÈRE</title>
+  <meta name="description" content="Your order has been confirmed. Thank you for shopping at LUMIÈRE." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/confirmation.css" />
+</head>
+<body>
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">LUMIÈRE</a>
+      <div class="nav-actions">
+        <a href="shop.html" class="nav-link">Continue Shopping</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="confirmation-main">
+    <div class="container">
+      <!-- Progress steps -->
+      <div class="checkout-steps">
+        <div class="step completed">
+          <span class="step-num">✓</span>
+          <span class="step-label">Cart</span>
+        </div>
+        <div class="step-line active"></div>
+        <div class="step completed">
+          <span class="step-num">✓</span>
+          <span class="step-label">Checkout</span>
+        </div>
+        <div class="step-line active"></div>
+        <div class="step active">
+          <span class="step-num">3</span>
+          <span class="step-label">Confirmation</span>
+        </div>
+      </div>
+
+      <!-- Success Card -->
+      <div class="confirmation-card">
+        <div class="success-animation">
+          <div class="success-circle">
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+              <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+              <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+          </div>
+        </div>
+
+        <h1>Order Confirmed!</h1>
+        <p class="confirmation-subtitle">Thank you for your purchase. Your order has been received and is being processed.</p>
+
+        <div class="order-number-banner">
+          <span>Order Number</span>
+          <strong id="order-number">#LMR-000000</strong>
+        </div>
+
+        <!-- Order Details -->
+        <div class="confirmation-details">
+          <div class="confirmation-section">
+            <h3>Items Ordered</h3>
+            <div id="confirmed-items">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <div class="confirmation-section">
+            <h3>Shipping To</h3>
+            <div class="address-display" id="confirmed-address">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <div class="confirmation-section">
+            <h3>Payment</h3>
+            <div id="confirmed-payment">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <div class="confirmation-section">
+            <h3>Order Total</h3>
+            <div class="confirmed-total" id="confirmed-total">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- What's Next -->
+        <div class="whats-next">
+          <h3>What happens next?</h3>
+          <div class="next-steps">
+            <div class="next-step">
+              <div class="next-step-icon" style="background: linear-gradient(135deg,#a78bfa,#7c3aed)">📧</div>
+              <div>
+                <strong>Confirmation Email</strong>
+                <p>We've sent a confirmation email with your order details.</p>
+              </div>
+            </div>
+            <div class="next-step">
+              <div class="next-step-icon" style="background: linear-gradient(135deg,#38bdf8,#0284c7)">📦</div>
+              <div>
+                <strong>Order Processing</strong>
+                <p>Your order is being prepared and will be shipped within 1–2 business days.</p>
+              </div>
+            </div>
+            <div class="next-step">
+              <div class="next-step-icon" style="background: linear-gradient(135deg,#34d399,#059669)">🚚</div>
+              <div>
+                <strong>Delivery</strong>
+                <p>You'll receive a tracking number once your order ships.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="confirmation-actions">
+          <a href="shop.html" class="btn btn-primary" id="conf-shop-btn">Continue Shopping</a>
+          <a href="index.html" class="btn btn-outline" id="conf-home-btn">Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2026 LUMIÈRE. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/confirmation.js"></script>
+</body>
+</html>

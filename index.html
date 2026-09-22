@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LUMIÈRE — Premium Lifestyle Store</title>
+  <meta name="description" content="Discover premium lifestyle products at LUMIÈRE. Shop sneakers, watches, headphones, accessories and more with free shipping on orders over $100." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/home.css" />
+</head>
+<body>
+  <!-- NAV -->
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">LUMIÈRE</a>
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="shop.html?cat=electronics" class="nav-link">Electronics</a>
+        <a href="shop.html?cat=fashion" class="nav-link">Fashion</a>
+        <a href="shop.html?cat=accessories" class="nav-link">Accessories</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" id="search-toggle" aria-label="Search" title="Search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <a href="wishlist.html" class="icon-btn" aria-label="Wishlist" title="Wishlist">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="badge" id="wishlist-badge">0</span>
+        </a>
+        <a href="cart.html" class="icon-btn" aria-label="Cart" title="Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="badge" id="cart-badge">0</span>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <!-- Search bar -->
+    <div class="search-bar" id="search-bar">
+      <div class="search-inner">
+        <input type="text" id="search-input" placeholder="Search for products..." autocomplete="off" />
+        <button id="search-btn">Search</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero-bg">
+        <img src="images/hero_banner.jpg" alt="Hero banner — premium lifestyle products" class="hero-img" />
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">New Collection 2026</p>
+        <h1 class="hero-title">Live. Style.<br /><em>Elevate.</em></h1>
+        <p class="hero-subtitle">Curated premium essentials for the modern lifestyle. Free shipping on orders over $100.</p>
+        <div class="hero-ctas">
+          <a href="shop.html" class="btn btn-primary" id="hero-shop-btn">Shop Now</a>
+          <a href="shop.html?cat=new" class="btn btn-outline" id="hero-new-btn">New Arrivals</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num">10K+</span><span class="stat-label">Products</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="stat-num">50K+</span><span class="stat-label">Happy Customers</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="stat-num">4.9★</span><span class="stat-label">Avg Rating</span></div>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <div class="scroll-dot"></div>
+      </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <section class="trust-strip">
+      <div class="container">
+        <div class="trust-items">
+          <div class="trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            <div><strong>Free Shipping</strong><span>On orders over $100</span></div>
+          </div>
+          <div class="trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+            <div><strong>Easy Returns</strong><span>30-day return policy</span></div>
+          </div>
+          <div class="trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <div><strong>Secure Payment</strong><span>256-bit SSL encryption</span></div>
+          </div>
+          <div class="trust-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <div><strong>24/7 Support</strong><span>Live chat & email</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="categories-section section-pad">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Browse by Category</p>
+          <h2 class="section-title">What are you looking for?</h2>
+        </div>
+        <div class="categories-grid">
+          <a href="shop.html?cat=electronics" class="cat-card cat-electronics" id="cat-electronics">
+            <div class="cat-icon">🎧</div>
+            <h3>Electronics</h3>
+            <p>Headphones, gadgets & more</p>
+            <span class="cat-arrow">→</span>
+          </a>
+          <a href="shop.html?cat=fashion" class="cat-card cat-fashion" id="cat-fashion">
+            <div class="cat-icon">👟</div>
+            <h3>Fashion</h3>
+            <p>Sneakers, apparel & style</p>
+            <span class="cat-arrow">→</span>
+          </a>
+          <a href="shop.html?cat=accessories" class="cat-card cat-accessories" id="cat-accessories">
+            <div class="cat-icon">⌚</div>
+            <h3>Accessories</h3>
+            <p>Watches, bags & sunglasses</p>
+            <span class="cat-arrow">→</span>
+          </a>
+          <a href="shop.html?cat=beauty" class="cat-card cat-beauty" id="cat-beauty">
+            <div class="cat-icon">✨</div>
+            <h3>Beauty</h3>
+            <p>Fragrance, skincare & more</p>
+            <span class="cat-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PRODUCTS -->
+    <section class="featured-section section-pad" id="featured">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Handpicked for You</p>
+          <h2 class="section-title">Featured Products</h2>
+          <a href="shop.html" class="section-link" id="view-all-featured">View All →</a>
+        </div>
+        <div class="products-grid" id="featured-grid">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- PROMO BANNER -->
+    <section class="promo-banner section-pad">
+      <div class="container">
+        <div class="promo-inner">
+          <div class="promo-text">
+            <p class="promo-eyebrow">Limited Time Offer</p>
+            <h2>Up to <span class="promo-highlight">40% OFF</span><br />Select Items</h2>
+            <p class="promo-sub">Don't miss our seasonal sale. Use code <strong>LUMIERE40</strong> at checkout.</p>
+            <a href="shop.html?sale=true" class="btn btn-primary" id="promo-shop-btn">Shop the Sale</a>
+          </div>
+          <div class="promo-visual">
+            <div class="promo-badge">SALE</div>
+            <div class="promo-circle c1"></div>
+            <div class="promo-circle c2"></div>
+            <div class="promo-circle c3"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW ARRIVALS -->
+    <section class="new-arrivals-section section-pad">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Fresh Drops</p>
+          <h2 class="section-title">New Arrivals</h2>
+          <a href="shop.html?cat=new" class="section-link" id="view-all-new">View All →</a>
+        </div>
+        <div class="products-grid" id="new-arrivals-grid">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials-section section-pad">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">What Customers Say</p>
+          <h2 class="section-title">Loved by Thousands</h2>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"The quality of the headphones blew me away. Delivered in 2 days, packaging was immaculate. Will definitely buy again!"</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background: linear-gradient(135deg,#a78bfa,#7c3aed)">JM</div>
+              <div><strong>James M.</strong><span>Verified Buyer</span></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Absolutely in love with my new watch. The craftsmanship is superb and the checkout process was seamless."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background: linear-gradient(135deg,#f472b6,#db2777)">SA</div>
+              <div><strong>Sophia A.</strong><span>Verified Buyer</span></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Best shopping experience I've had online. The bag I ordered looks even better in person than in the photos!"</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background: linear-gradient(135deg,#34d399,#059669)">KL</div>
+              <div><strong>Kevin L.</strong><span>Verified Buyer</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter-section section-pad">
+      <div class="container">
+        <div class="newsletter-inner">
+          <div class="newsletter-text">
+            <h2>Stay in the Loop</h2>
+            <p>Subscribe for exclusive deals, early access to new arrivals, and style inspiration.</p>
+          </div>
+          <form class="newsletter-form" id="newsletter-form">
+            <input type="email" id="newsletter-email" placeholder="Enter your email address" required />
+            <button type="submit" class="btn btn-primary" id="newsletter-submit">Subscribe</button>
+          </form>
+          <p class="newsletter-note" id="newsletter-success" style="display:none;color:#a78bfa;margin-top:1rem;">🎉 You're subscribed! Check your inbox for a welcome gift.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">LUMIÈRE</a>
+          <p>Premium lifestyle products curated for those who appreciate quality and style.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Instagram">📷</a>
+            <a href="#" class="social-link" aria-label="Twitter">🐦</a>
+            <a href="#" class="social-link" aria-label="Facebook">👥</a>
+            <a href="#" class="social-link" aria-label="Pinterest">📌</a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="shop.html">All Products</a></li>
+            <li><a href="shop.html?cat=new">New Arrivals</a></li>
+            <li><a href="shop.html?sale=true">Sale</a></li>
+            <li><a href="shop.html?cat=electronics">Electronics</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Help</h4>
+          <ul>
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">Returns Policy</a></li>
+            <li><a href="#">Size Guide</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 LUMIÈRE. All rights reserved.</p>
+        <div class="payment-icons">
+          <span class="pay-icon">VISA</span>
+          <span class="pay-icon">MC</span>
+          <span class="pay-icon">AMEX</span>
+          <span class="pay-icon">PayPal</span>
+          <span class="pay-icon">Apple Pay</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop — LUMIÈRE Premium Lifestyle Store</title>
+  <meta name="description" content="Browse our full collection of premium lifestyle products. Filter by category, price, and rating." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/shop.css" />
+</head>
+<body>
+  <!-- NAV -->
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">LUMIÈRE</a>
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link active">Shop</a>
+        <a href="shop.html?cat=electronics" class="nav-link">Electronics</a>
+        <a href="shop.html?cat=fashion" class="nav-link">Fashion</a>
+        <a href="shop.html?cat=accessories" class="nav-link">Accessories</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" id="search-toggle" aria-label="Search" title="Search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <a href="wishlist.html" class="icon-btn" aria-label="Wishlist" title="Wishlist">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="badge" id="wishlist-badge">0</span>
+        </a>
+        <a href="cart.html" class="icon-btn" aria-label="Cart" title="Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="badge" id="cart-badge">0</span>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="search-bar" id="search-bar">
+      <div class="search-inner">
+        <input type="text" id="search-input" placeholder="Search for products..." autocomplete="off" />
+        <button id="search-btn">Search</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="shop-main">
+    <!-- PAGE HEADER -->
+    <div class="shop-page-header">
+      <div class="container">
+        <h1 id="shop-page-title">All Products</h1>
+        <p class="breadcrumb"><a href="index.html">Home</a> → <span id="breadcrumb-cat">Shop</span></p>
+      </div>
+    </div>
+
+    <div class="container shop-layout">
+      <!-- SIDEBAR FILTERS -->
+      <aside class="shop-sidebar" id="shop-sidebar">
+        <div class="sidebar-header">
+          <h3>Filters</h3>
+          <button class="clear-filters-btn" id="clear-filters">Clear All</button>
+        </div>
+
+        <!-- Categories -->
+        <div class="filter-group">
+          <h4>Category</h4>
+          <div class="filter-options" id="filter-categories">
+            <label class="filter-option"><input type="checkbox" value="electronics" id="filter-electronics" /> Electronics</label>
+            <label class="filter-option"><input type="checkbox" value="fashion" id="filter-fashion" /> Fashion</label>
+            <label class="filter-option"><input type="checkbox" value="accessories" id="filter-accessories" /> Accessories</label>
+            <label class="filter-option"><input type="checkbox" value="beauty" id="filter-beauty" /> Beauty</label>
+          </div>
+        </div>
+
+        <!-- Price Range -->
+        <div class="filter-group">
+          <h4>Price Range</h4>
+          <div class="price-range-wrap">
+            <input type="range" id="price-min" min="0" max="1000" value="0" class="range-slider" />
+            <input type="range" id="price-max" min="0" max="1000" value="1000" class="range-slider" />
+            <div class="price-labels">
+              <span>$<span id="price-min-val">0</span></span>
+              <span>$<span id="price-max-val">1000</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rating -->
+        <div class="filter-group">
+          <h4>Min Rating</h4>
+          <div class="rating-filter" id="rating-filter">
+            <button class="rating-btn active" data-rating="0" id="rating-all">All</button>
+            <button class="rating-btn" data-rating="3" id="rating-3">3★+</button>
+            <button class="rating-btn" data-rating="4" id="rating-4">4★+</button>
+            <button class="rating-btn" data-rating="4.5" id="rating-45">4.5★+</button>
+          </div>
+        </div>
+
+        <!-- On Sale -->
+        <div class="filter-group">
+          <h4>Deals</h4>
+          <label class="filter-option"><input type="checkbox" id="filter-sale" /> On Sale only</label>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <div class="shop-content">
+        <!-- Toolbar -->
+        <div class="shop-toolbar">
+          <p class="results-count"><span id="results-num">0</span> products found</p>
+          <div class="toolbar-right">
+            <select id="sort-select" class="sort-select">
+              <option value="featured">Featured</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="rating">Top Rated</option>
+              <option value="newest">Newest</option>
+            </select>
+            <button class="view-btn active" id="view-grid" title="Grid view">⊞</button>
+            <button class="view-btn" id="view-list" title="List view">☰</button>
+            <button class="filter-mobile-btn" id="filter-mobile-btn">⚙ Filters</button>
+          </div>
+        </div>
+
+        <!-- Products -->
+        <div class="products-grid" id="shop-grid">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="pagination"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2026 LUMIÈRE. All rights reserved.</p>
+        <div class="payment-icons">
+          <span class="pay-icon">VISA</span>
+          <span class="pay-icon">MC</span>
+          <span class="pay-icon">AMEX</span>
+          <span class="pay-icon">PayPal</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/shop.js"></script>
+</body>
+</html>

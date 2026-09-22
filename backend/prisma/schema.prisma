@@ -1,0 +1,106 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id           String     @id @default(uuid())
+  email        String     @unique
+  name         String
+  passwordHash String
+  role         String     @default("CUSTOMER")
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  cartItems    CartItem[]
+  orders       Order[]
+  wishlist     Wishlist[]
+}
+
+model Product {
+  id              Int        @id @default(autoincrement())
+  name            String
+  category        String
+  price           Float
+  originalPrice   Float?
+  image           String?
+  imagesJson      String?    // JSON array of strings
+  rating          Float      @default(5.0)
+  reviewsCount    Int        @default(0)
+  badge           String?    // 'sale', 'hot', 'new'
+  isNew           Boolean    @default(false)
+  inStock         Boolean    @default(true)
+  stock           Int        @default(10)
+  description     String
+  fullDescription String
+  specsJson       String?    // JSON array of key-value pairs
+  colorsJson      String?    // JSON array of hex color strings
+  colorNamesJson  String?    // JSON array of color names
+  sizesJson       String?    // JSON array of available sizes
+  cssGradient     String?
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+  reviews         Review[]
+  cartItems       CartItem[]
+  wishlistItems   Wishlist[]
+}
+
+model Review {
+  id        String   @id @default(uuid())
+  productId Int
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  name      String
+  rating    Int
+  date      String
+  text      String
+  avatar    String   @default("#7c3aed")
+  createdAt DateTime @default(now())
+}
+
+model CartItem {
+  id        String   @id @default(uuid())
+  sessionId String
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  productId Int
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  quantity  Int      @default(1)
+  selectedColor String?
+  selectedSize  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Wishlist {
+  id        String   @id @default(uuid())
+  sessionId String
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  productId Int
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+}
+
+model Order {
+  id              String      @id @default(uuid())
+  orderNumber     String      @unique
+  userId          String?
+  user            User?       @relation(fields: [userId], references: [id], onDelete: SetNull)
+  guestEmail      String?
+  shippingName    String
+  shippingAddress String
+  city            String
+  zipCode         String
+  country         String
+  subtotal        Float
+  discount        Float       @default(0)
+  shippingFee     Float       @default(0)
+  total           Float
+  status          String      @default("PROCESSING") // PROCESSING, SHIPPED, DELIVERED, CANCELLED
+  paymentMethod   String      @default("CREDIT_CARD")
+  itemsJson       String      // JSON snapshot of ordered items
+  createdAt       DateTime    @default(now())
+}

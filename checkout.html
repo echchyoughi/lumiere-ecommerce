@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout — LUMIÈRE</title>
+  <meta name="description" content="Secure checkout at LUMIÈRE. Complete your purchase." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/checkout.css" />
+</head>
+<body>
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">LUMIÈRE</a>
+      <div class="nav-actions">
+        <a href="cart.html" class="icon-btn" aria-label="Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="badge" id="cart-badge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="checkout-main">
+    <div class="container">
+      <div class="checkout-page-header">
+        <h1>Checkout</h1>
+        <p class="breadcrumb"><a href="index.html">Home</a> → <a href="cart.html">Cart</a> → Checkout</p>
+      </div>
+
+      <!-- Progress steps -->
+      <div class="checkout-steps">
+        <div class="step completed" id="step-cart">
+          <span class="step-num">✓</span>
+          <span class="step-label">Cart</span>
+        </div>
+        <div class="step-line active"></div>
+        <div class="step active" id="step-checkout">
+          <span class="step-num">2</span>
+          <span class="step-label">Checkout</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step" id="step-confirm">
+          <span class="step-num">3</span>
+          <span class="step-label">Confirmation</span>
+        </div>
+      </div>
+
+      <div class="checkout-layout">
+        <!-- LEFT: Form -->
+        <div class="checkout-form-wrap">
+          <!-- Contact Info -->
+          <div class="form-section">
+            <h3 class="form-section-title">Contact Information</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" placeholder="you@example.com" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" placeholder="+1 (555) 000-0000" required />
+              </div>
+            </div>
+          </div>
+
+          <!-- Shipping Address -->
+          <div class="form-section">
+            <h3 class="form-section-title">Shipping Address</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="first-name">First Name *</label>
+                <input type="text" id="first-name" placeholder="John" required />
+              </div>
+              <div class="form-group">
+                <label for="last-name">Last Name *</label>
+                <input type="text" id="last-name" placeholder="Doe" required />
+              </div>
+              <div class="form-group full-width">
+                <label for="address">Street Address *</label>
+                <input type="text" id="address" placeholder="123 Main Street, Apt 4B" required />
+              </div>
+              <div class="form-group">
+                <label for="city">City *</label>
+                <input type="text" id="city" placeholder="New York" required />
+              </div>
+              <div class="form-group">
+                <label for="state">State / Province *</label>
+                <input type="text" id="state" placeholder="NY" required />
+              </div>
+              <div class="form-group">
+                <label for="zip">ZIP / Postal Code *</label>
+                <input type="text" id="zip" placeholder="10001" required />
+              </div>
+              <div class="form-group">
+                <label for="country">Country *</label>
+                <select id="country" required>
+                  <option value="">Select country</option>
+                  <option value="us" selected>United States</option>
+                  <option value="uk">United Kingdom</option>
+                  <option value="ca">Canada</option>
+                  <option value="au">Australia</option>
+                  <option value="de">Germany</option>
+                  <option value="fr">France</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Shipping Method -->
+          <div class="form-section">
+            <h3 class="form-section-title">Shipping Method</h3>
+            <div class="shipping-options">
+              <label class="shipping-option selected" id="ship-standard-label">
+                <input type="radio" name="shipping" value="standard" id="ship-standard" checked />
+                <div class="ship-info">
+                  <strong>Standard Shipping</strong>
+                  <span>5–7 business days</span>
+                </div>
+                <span class="ship-price" id="ship-standard-price">FREE</span>
+              </label>
+              <label class="shipping-option" id="ship-express-label">
+                <input type="radio" name="shipping" value="express" id="ship-express" />
+                <div class="ship-info">
+                  <strong>Express Shipping</strong>
+                  <span>2–3 business days</span>
+                </div>
+                <span class="ship-price">$12.99</span>
+              </label>
+              <label class="shipping-option" id="ship-overnight-label">
+                <input type="radio" name="shipping" value="overnight" id="ship-overnight" />
+                <div class="ship-info">
+                  <strong>Overnight Shipping</strong>
+                  <span>Next business day</span>
+                </div>
+                <span class="ship-price">$24.99</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Payment -->
+          <div class="form-section">
+            <h3 class="form-section-title">Payment Information</h3>
+            <div class="payment-tabs">
+              <button class="pay-tab active" data-pay="card" id="pay-tab-card">💳 Credit Card</button>
+              <button class="pay-tab" data-pay="paypal" id="pay-tab-paypal">🅿 PayPal</button>
+              <button class="pay-tab" data-pay="apple" id="pay-tab-apple"> Apple Pay</button>
+            </div>
+
+            <div id="payment-card" class="payment-panel">
+              <div class="form-grid">
+                <div class="form-group full-width">
+                  <label for="card-name">Cardholder Name *</label>
+                  <input type="text" id="card-name" placeholder="John Doe" required />
+                </div>
+                <div class="form-group full-width">
+                  <label for="card-number">Card Number *</label>
+                  <input type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19" required />
+                </div>
+                <div class="form-group">
+                  <label for="card-expiry">Expiry Date *</label>
+                  <input type="text" id="card-expiry" placeholder="MM / YY" maxlength="7" required />
+                </div>
+                <div class="form-group">
+                  <label for="card-cvv">CVV *</label>
+                  <input type="text" id="card-cvv" placeholder="123" maxlength="4" required />
+                </div>
+              </div>
+              <div class="secure-notice">
+                🔒 Your payment information is encrypted and secure.
+              </div>
+            </div>
+
+            <div id="payment-paypal" class="payment-panel hidden">
+              <div class="alt-payment-info">
+                <p>You will be redirected to PayPal to complete your payment securely.</p>
+                <div class="paypal-logo">PayPal</div>
+              </div>
+            </div>
+
+            <div id="payment-apple" class="payment-panel hidden">
+              <div class="alt-payment-info">
+                <p>Complete payment using Apple Pay on your compatible device.</p>
+                <button class="apple-pay-btn" id="apple-pay-btn"> Pay with Apple Pay</button>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-lg btn-full" id="place-order-btn">
+            🔒 Place Order
+          </button>
+        </div>
+
+        <!-- RIGHT: Order Summary -->
+        <div class="checkout-summary">
+          <h3>Order Summary</h3>
+          <div class="checkout-items" id="checkout-items">
+            <!-- Populated by JS -->
+          </div>
+          <div class="summary-rows" id="checkout-summary-rows">
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <span id="co-subtotal">$0.00</span>
+            </div>
+            <div class="summary-row" id="co-discount-row" style="display:none;color:#a78bfa">
+              <span>Discount</span>
+              <span id="co-discount">-$0.00</span>
+            </div>
+            <div class="summary-row">
+              <span>Shipping</span>
+              <span id="co-shipping">FREE</span>
+            </div>
+            <div class="summary-row">
+              <span>Tax (8%)</span>
+              <span id="co-tax">$0.00</span>
+            </div>
+          </div>
+          <div class="summary-total">
+            <span>Total</span>
+            <span id="co-total">$0.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2026 LUMIÈRE. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>
