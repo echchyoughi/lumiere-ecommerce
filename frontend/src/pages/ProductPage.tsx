@@ -252,7 +252,7 @@ export const ProductPage: React.FC = () => {
               onClick={() => toggleWishlist(product.id)}
               title={wishlisted ? 'Wishlisted' : 'Add to Wishlist'}
             >
-              <Heart size={20} fill={wishlisted ? '#c5a059' : 'none'} color={wishlisted ? '#c5a059' : '#fff'} />
+              <Heart size={20} fill={wishlisted ? '#06b6d4' : 'none'} color={wishlisted ? '#06b6d4' : '#fff'} />
             </button>
           </div>
 

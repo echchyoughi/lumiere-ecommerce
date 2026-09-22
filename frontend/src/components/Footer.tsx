@@ -18,7 +18,7 @@ export const Footer: React.FC = () => {
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-            <Truck size={28} color="#c5a059" />
+            <Truck size={28} color="#06b6d4" />
             <div>
               <strong style={{ color: '#fff', display: 'block' }}>Free Express Shipping</strong>
               <span style={{ fontSize: '13px' }}>On all orders over $100</span>
@@ -26,7 +26,7 @@ export const Footer: React.FC = () => {
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-            <RotateCcw size={28} color="#c5a059" />
+            <RotateCcw size={28} color="#06b6d4" />
             <div>
               <strong style={{ color: '#fff', display: 'block' }}>30-Day Hassle Returns</strong>
               <span style={{ fontSize: '13px' }}>Full money-back guarantee</span>
@@ -34,7 +34,7 @@ export const Footer: React.FC = () => {
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-            <ShieldCheck size={28} color="#c5a059" />
+            <ShieldCheck size={28} color="#06b6d4" />
             <div>
               <strong style={{ color: '#fff', display: 'block' }}>256-Bit SSL Security</strong>
               <span style={{ fontSize: '13px' }}>Safe & encrypted checkout</span>
@@ -42,7 +42,7 @@ export const Footer: React.FC = () => {
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-            <Headphones size={28} color="#c5a059" />
+            <Headphones size={28} color="#06b6d4" />
             <div>
               <strong style={{ color: '#fff', display: 'block' }}>24/7 VIP Support</strong>
               <span style={{ fontSize: '13px' }}>Dedicated concierge service</span>

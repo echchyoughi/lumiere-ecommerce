@@ -56,7 +56,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           }}
           title={wishlisted ? 'Remove from Wishlist' : 'Add to Wishlist'}
         >
-          <Heart size={18} fill={wishlisted ? '#c5a059' : 'none'} color={wishlisted ? '#c5a059' : '#fff'} />
+          <Heart size={18} fill={wishlisted ? '#06b6d4' : 'none'} color={wishlisted ? '#06b6d4' : '#fff'} />
         </button>
       </div>
 
