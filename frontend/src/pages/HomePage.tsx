@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, TrendingUp, ShieldCheck, Award, Flame } from 'lucide-react';
+import { ArrowRight, Sparkles, Star, ShoppingBag, ShieldCheck, Award, Flame, Truck } from 'lucide-react';
 import { api, Product } from '../services/api';
 import { ProductCard } from '../components/ProductCard';
+import { useCart } from '../context/CartContext';
 
 export const HomePage: React.FC = () => {
   const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<'trending' | 'new' | 'sale'>('trending');
+  const { addToCart } = useCart();
 
   useEffect(() => {
     api.getProducts().then((res) => {
@@ -29,98 +31,105 @@ export const HomePage: React.FC = () => {
       ? newProducts
       : saleProducts;
 
+  // Spotlight featured product for Hero glass card
+  const spotlightProduct = allProducts.find((p) => p.id === 10) || allProducts[0];
+
   return (
     <div>
-      {/* HERO SECTION */}
-      <section
-        style={{
-          position: 'relative',
-          minHeight: '86vh',
-          display: 'flex',
-          alignItems: 'center',
-          background: 'linear-gradient(180deg, rgba(13,15,18,0.45) 0%, rgba(13,15,18,0.95) 100%), url("/images/hero_banner.jpg") center/cover no-repeat',
-          borderBottom: '1px solid var(--border-color)',
-          marginTop: '-120px',
-          paddingTop: '180px',
-          paddingBottom: '100px'
-        }}
-      >
+      {/* ENHANCED HERO SECTION */}
+      <section className="hero-wrapper">
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-          <div style={{ maxWidth: '680px' }}>
-            <div
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '10px',
-                padding: '8px 18px',
-                background: 'rgba(212, 178, 111, 0.12)',
-                border: '1px solid rgba(212, 178, 111, 0.3)',
-                borderRadius: '30px',
-                color: 'var(--color-primary)',
-                fontSize: '12px',
-                fontWeight: 700,
-                letterSpacing: '1.5px',
-                marginBottom: '28px'
-              }}
-            >
-              <Sparkles size={14} /> 2026 EDITORIAL COLLECTION
-            </div>
-
-            <h1
-              style={{
-                fontSize: 'clamp(46px, 6vw, 76px)',
-                fontWeight: 700,
-                lineHeight: 1.15,
-                marginBottom: '28px',
-                letterSpacing: '-0.02em'
-              }}
-            >
-              The Benchmark of<br />
-              <em style={{ color: 'var(--color-primary)', fontStyle: 'italic', fontWeight: 600 }}>Modern Living.</em>
-            </h1>
-
-            <p style={{ fontSize: '19px', color: 'var(--text-muted)', marginBottom: '40px', lineHeight: 1.7, fontWeight: 400 }}>
-              Curated architectural lighting, Swiss horology, audiophile sound, and Italian leather essentials. Crafted for those who appreciate understated elegance.
-            </p>
-
-            <div style={{ display: 'flex', gap: '18px', flexWrap: 'wrap' }}>
-              <Link to="/shop" className="btn btn-primary" style={{ padding: '16px 32px' }}>
-                Explore Collection <ArrowRight size={16} />
-              </Link>
-              <Link to="/shop?cat=electronics" className="btn btn-outline" style={{ padding: '16px 32px' }}>
-                Shop Trending
-              </Link>
-            </div>
-
-            {/* TRUST MARQUEE COUNTERS */}
-            <div
-              style={{
-                display: 'flex',
-                gap: '40px',
-                marginTop: '60px',
-                paddingTop: '36px',
-                borderTop: '1px solid var(--border-color)'
-              }}
-            >
-              <div>
-                <span style={{ display: 'block', fontSize: '28px', fontWeight: 700, color: 'var(--color-primary)', fontFamily: "'Cormorant Garamond', serif" }}>
-                  100%
-                </span>
-                <span style={{ fontSize: '12px', color: 'var(--text-muted)', letterSpacing: '1px', textTransform: 'uppercase' }}>Authentic Quality</span>
+          <div className="hero-grid">
+            {/* LEFT COLUMN: HEADLINE & ACTIONS */}
+            <div>
+              <div className="hero-pill">
+                <span className="hero-pulse-dot"></span>
+                <span>2026 EDITORIAL COLLECTION</span>
               </div>
-              <div>
-                <span style={{ display: 'block', fontSize: '28px', fontWeight: 700, color: 'var(--color-primary)', fontFamily: "'Cormorant Garamond', serif" }}>
-                  4.9 / 5.0
-                </span>
-                <span style={{ fontSize: '12px', color: 'var(--text-muted)', letterSpacing: '1px', textTransform: 'uppercase' }}>Global Client Rating</span>
+
+              <h1 className="hero-headline">
+                The Benchmark of<br />
+                <em style={{ color: 'var(--color-primary)', fontStyle: 'italic', fontWeight: 600 }}>
+                  Modern Living.
+                </em>
+              </h1>
+
+              <p className="hero-subtext">
+                Curated architectural lighting, Swiss horology, audiophile sound, and Italian leather essentials. Crafted for those who appreciate understated elegance.
+              </p>
+
+              <div className="hero-actions">
+                <Link to="/shop" className="btn btn-primary">
+                  Explore Collection <ArrowRight size={16} />
+                </Link>
+                <Link to="/shop?cat=electronics" className="btn btn-outline">
+                  Shop Trending
+                </Link>
               </div>
-              <div>
-                <span style={{ display: 'block', fontSize: '28px', fontWeight: 700, color: 'var(--color-primary)', fontFamily: "'Cormorant Garamond', serif" }}>
-                  Express
-                </span>
-                <span style={{ fontSize: '12px', color: 'var(--text-muted)', letterSpacing: '1px', textTransform: 'uppercase' }}>Worldwide Delivery</span>
+
+              {/* GLASS STAT CARDS */}
+              <div className="hero-stats-row">
+                <div className="hero-stat-card">
+                  <div className="hero-stat-number">100%</div>
+                  <div className="hero-stat-label">Authentic Quality</div>
+                </div>
+
+                <div className="hero-stat-card">
+                  <div className="hero-stat-number">4.9 ★</div>
+                  <div className="hero-stat-label">Global Rating</div>
+                </div>
+
+                <div className="hero-stat-card">
+                  <div className="hero-stat-number">Express</div>
+                  <div className="hero-stat-label">Worldwide Delivery</div>
+                </div>
               </div>
             </div>
+
+            {/* RIGHT COLUMN: FLOATING SPOTLIGHT GLASS CARD */}
+            {spotlightProduct && (
+              <div className="hero-featured-card">
+                <span className="hero-card-badge">Spotlight Drop</span>
+
+                <div style={{ position: 'relative', aspectRatio: '4/3', borderRadius: 'var(--radius-md)', overflow: 'hidden', marginBottom: '20px', background: '#111319' }}>
+                  <img
+                    src={spotlightProduct.image || spotlightProduct.images[0]}
+                    alt={spotlightProduct.name}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                </div>
+
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
+                  <div>
+                    <span style={{ color: 'var(--color-primary)', fontSize: '11px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' }}>
+                      {spotlightProduct.category}
+                    </span>
+                    <h3 style={{ fontSize: '24px', fontWeight: 600, color: '#fff', margin: '4px 0 8px' }}>
+                      {spotlightProduct.name}
+                    </h3>
+                  </div>
+                  <span style={{ fontSize: '24px', fontWeight: 700, color: 'var(--text-gold)', fontFamily: "'Cormorant Garamond', serif" }}>
+                    ${spotlightProduct.price.toFixed(2)}
+                  </span>
+                </div>
+
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '16px', borderTop: '1px solid var(--border-color)' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#f59e0b', fontSize: '13px' }}>
+                    <Star size={14} fill="#f59e0b" color="#f59e0b" />
+                    <span style={{ fontWeight: 700, color: '#fff' }}>{spotlightProduct.rating.toFixed(1)}</span>
+                    <span style={{ color: 'var(--text-muted)' }}>({spotlightProduct.reviewsCount} reviews)</span>
+                  </div>
+
+                  <button
+                    className="btn btn-primary"
+                    style={{ padding: '10px 18px', fontSize: '12px' }}
+                    onClick={() => addToCart(spotlightProduct)}
+                  >
+                    <ShoppingBag size={14} /> Quick Bag
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -161,10 +170,9 @@ export const HomePage: React.FC = () => {
                   flexDirection: 'column',
                   justifyContent: 'flex-end',
                   padding: '24px',
-                  background: `linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(13,15,18,0.92) 100%), url("${c.img}") center/cover no-repeat`,
+                  background: `linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(10,12,15,0.92) 100%), url("${c.img}") center/cover no-repeat`,
                   transition: 'transform 0.4s ease, border-color 0.4s ease'
                 }}
-                className="category-card"
               >
                 <span style={{ color: 'var(--color-primary)', fontSize: '11px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '4px' }}>
                   {c.count}
@@ -255,6 +263,10 @@ export const HomePage: React.FC = () => {
                   <ShieldCheck size={20} color="var(--color-primary)" />
                   <span>2-Year warranty on all horology & wireless tech</span>
                 </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', fontSize: '15px' }}>
+                  <Truck size={20} color="var(--color-primary)" />
+                  <span>Complimentary insured express shipping worldwide</span>
+                </div>
               </div>
 
               <Link to="/shop" className="btn btn-primary">
@@ -263,7 +275,7 @@ export const HomePage: React.FC = () => {
             </div>
 
             <div style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-md)' }}>
-              <img src="/images/product_keyboard.jpg" alt="Minimalist tech craftsmanship" style={{ width: '100%', height: '420px', objectFit: 'cover' }} />
+              <img src="/images/product_keyboard.jpg" alt="Minimalist tech craftsmanship" style={{ width: '100%', height: '440px', objectFit: 'cover' }} />
             </div>
           </div>
         </div>
